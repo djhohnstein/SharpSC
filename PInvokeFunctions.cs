@@ -378,6 +378,7 @@ namespace SharpSC
                 UninstallService(hostname, ServiceName);
             }
             catch (Exception ex) {}
+            Console.WriteLine("[*] Attempting to create service {0} on {1}...", ServiceName, hostname);
             using (var scmHandle = OpenSCManager(hostname, null, SCM_ACCESS.SC_MANAGER_CREATE_SERVICE))
             {
                 if (scmHandle.IsInvalid)
@@ -428,6 +429,7 @@ namespace SharpSC
                             Console.WriteLine("[-] Error uninstalling {0} on {1}. Reason: ServiceHandle is invalid.", ServiceName, hostname);
                         } else
                         {
+                            Console.WriteLine("[*] Attempting to delete {0} on {1}...", ServiceName, hostname);
                             DeleteService(serviceHandle);
                             Console.WriteLine("[*] Deleted {0} on {1}.", ServiceName, hostname);
                         }

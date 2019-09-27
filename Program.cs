@@ -116,7 +116,6 @@ Example:
             {
                 computerName = programArgs["computername"];
             }
-            ServiceController test = new ServiceController();
             switch (programArgs["action"])
             {
                 case "query":
